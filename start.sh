@@ -4,6 +4,12 @@
 mkdir -p storage/logs
 touch storage/logs/laravel.log
 
+# Clear and re-cache config using Render env vars
+php artisan config:clear
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
 # Run migrations
 php artisan migrate --force || true
 
