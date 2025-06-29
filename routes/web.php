@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return 'Hello, Laravel is working.';
+    return Inertia::render('Welcome');
 })->name('home');
 
 Route::get('/invoice-assistant', [InvoiceAssistantController::class, 'index']);
