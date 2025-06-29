@@ -1,2 +1,7 @@
 *
 !.gitignore
+/storage/*
+!storage/app
+!storage/framework
+!storage/logs
+!storage/logs/.gitkeep
