@@ -22,6 +22,7 @@ class InvoiceAssistantController extends Controller
     //generating the invoice
     Public function generate (Request $request)
     {
+        Log::info('this is a test log entry');
         $validated = $request->validate([
             'client' => 'required|string',
             'invoice_date' => 'required|date',
