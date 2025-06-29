@@ -42,7 +42,7 @@ const InvoiceAssistant: React.FC = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">AI Invoice Assistant</h1>
+      <h1 className="text-2xl font-bold mb-4">AI Invoice Assistant V1</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           name="client"
