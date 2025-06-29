@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: invoice-assistant
+    env: php
+    plan: free
+    region: oregon
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      npm ci
+      npm run build
+      php artisan config:cache
+    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        value: https://invoice-assistant.onrender.com
+      - key: LOG_CHANNEL
+        value: stack
+      - key: APP_DEBUG
+        value: false
+      - key: SANCTUM_STATEFUL_DOMAINS
+        value: invoice-assistant.netlify.app
+      - key: SESSION_DOMAIN
+        value: .onrender.com
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: 127.0.0.1
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        value: placeholder
+      - key: DB_USERNAME
+        value: root
+      - key: DB_PASSWORD
+        value: ""
+    autoDeploy: true
+    healthCheckPath: /healthz
